@@ -1,0 +1,45 @@
+{% extends 'donors/base.html' %}
+{% load static %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to the Blood Donor Application</h1>
+    <p class="lead">This is a simple application to help people find blood donors and blood banks easily.</p>
+    <hr class="my-4">
+    <div class="info-section">
+        <h2>What is Blood Donation?</h2>
+        <p>Blood donation is the process of voluntarily giving blood, which is then used for transfusions to treat various medical conditions, including injuries, surgeries, and illnesses.</p>
+        <img src="{% static 'images/blood_donation.jpg' %}" alt="Blood Donation" class="img-fluid">
+    </div>
+    <div class="info-section">
+        <h2>Why Donate Blood?</h2>
+        <p>Donating blood is crucial for saving lives and supporting medical treatments. It helps maintain an adequate supply of blood for emergencies and ongoing medical procedures.</p>
+        <img src="{% static 'images/save_lifes.png' %}" alt="Save Lives" class="img-fluid">
+    </div>
+    <div class="info-section">
+        <h2>Benefits of Donating Blood</h2>
+        <ul>
+            <li>Helps save lives by providing essential blood transfusions.</li>
+            <li>Reduces the risk of certain health conditions, including heart disease and cancer, by maintaining healthy iron levels.</li>
+            <li>Promotes a sense of community and altruism by contributing to the well-being of others.</li>
+        </ul>
+        <img src="{% static 'images/benefits.jpg' %}" alt="Benefits of Donating Blood" class="img-fluid">
+    </div>
+    <div class="info-section">
+        <h2>Do's and Don'ts</h2>
+        <h3>Before Donation</h3>
+        <ul>
+            {% for item in dos_and_donts.before_donation %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <h3>After Donation</h3>
+        <ul>
+            {% for item in dos_and_donts.after_donation %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <img src="{% static 'images/dos_and_donts.png' %}" alt="Do's and Don'ts" class="img-fluid">
+    </div>
+    <a class="btn btn-primary btn-lg" href="{% url 'register_donor' %}" role="button">Register as a Donor</a>
+</div>
+{% endblock %}

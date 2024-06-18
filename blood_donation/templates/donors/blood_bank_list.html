@@ -1,0 +1,41 @@
+{% extends 'donors/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Blood Banks</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Location</th>
+               <!-- <th scope="col">Blood Group</th>
+                <th scope="col">Quantity</th> -->
+                <th scope="col">Actions</th>  <!-- New column for actions -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for blood_bank in blood_banks %}
+            <tr>
+                <td>{{ blood_bank.name }}</td>
+                <td>{{ blood_bank.location }}</td>
+              <!--  <td>{{ blood_bank.blood_group }}</td>
+                <td>{{ blood_bank.quantity_available }} units</td> -->
+                <td>
+                    <!-- Example: Edit button linking to update form -->
+                    <a href="{% url 'blood_bank_update' blood_bank.id %}" class="btn btn-primary btn-sm mr-2">Edit</a>
+                    
+                    <!-- Example: Delete button (confirm deletion) -->
+                    <a href="{% url 'blood_bank_delete' blood_bank.id %}" class="btn btn-danger btn-sm"
+                        onclick="return confirm('Are you sure you want to delete {{ blood_bank.name }}?')">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No blood banks found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'donors/base.html' %}
+
+{% block content %}
+    <h2>Blood Bank Dashboard</h2>
+    
+    <!-- Navigation Links -->
+    <div class="mb-4">
+        <a href="{% url 'blood_bank_list' %}" class="btn btn-primary mr-2">View All Blood Banks</a>
+        <a href="{% url 'add_blood_bank' %}" class="btn btn-success">Add New Blood Bank</a>
+    </div>
+
+    <!-- Summary Statistics or Widgets -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Blood Banks</h5>
+                    <p class="card-text">{{ blood_bank_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Donors</h5>
+                    <p class="card-text">{{ donor_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Donations</h5>
+                    <ul class="list-unstyled">
+                        {% for donation in recent_donations %}
+                        <li>{{ donation.donor.name }} donated {{ donation.units_donated }} units</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blood Bank Cards -->
+    <div class="row">
+        {% for blood_bank in blood_banks %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ blood_bank.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ blood_bank.location }}</h6>
+                 <!--   <p class="card-text">Blood Group: {{ blood_bank.blood_group }}</p>
+                    <p class="card-text">Quantity Available: {{ blood_bank.quantity }} units</p>  -->
+
+                    <!-- Add the blood group details here -->
+                    <h6 class="card-subtitle mb-2 text-muted">Available Blood Groups</h6>
+                    <ul class="list-unstyled">
+                        {% for blood_group in blood_groups %}
+                            {% if blood_group.blood_bank == blood_bank %}
+                                <li>
+                                  <strong> Blood Group: {{ blood_group.blood_group_name }}<br>
+                                    Quantity Available: {{ blood_group.quantity_available }} </strong> <br>
+                                    Last Updated: {{ blood_group.last_updated }}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

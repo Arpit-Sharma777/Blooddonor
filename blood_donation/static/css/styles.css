@@ -1,0 +1,76 @@
+body {
+    padding-top: 56px;
+}
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.card-subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+}
+/* Additional styling for the home page */
+.jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-radius: 10px;
+}
+
+.jumbotron h2 {
+    margin-top: 2rem;
+}
+
+.jumbotron ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+.jumbotron ul li {
+    margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-primary:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+/* Additional styling for the home page */
+.info-section {
+    margin-bottom: 4rem;
+}
+
+.info-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-section p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-section ul {
+    font-size: 1.2rem;
+}
+
+.info-section img {
+    max-width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin-top: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.info-section img:hover {
+    transform: scale(1.05);
+}

@@ -1,0 +1,88 @@
+{% extends 'donors/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Register as Donor</h2>
+
+    <div class="alert alert-info">
+        <strong>Eligibility Criteria:</strong> Please ensure you meet the following criteria before proceeding with
+        registration:
+        <ul>
+            <li>You must be at least 18 years old.</li>
+            <li>Your weight must be above 50 kg.</li>
+            <li>You should not have any chronic diseases or major health issues.</li>
+        </ul>
+        <strong>Note:</strong> By submitting this form, you confirm that the details entered are accurate and truthful.
+    </div>
+
+    <form method="post" class="needs-validation" id="registrationForm" novalidate>
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.name.label_tag }} {{ form.name }}
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_date_of_birth">Date of Birth:</label>
+                <input type="date" class="form-control" id="id_date_of_birth" name="date_of_birth" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.weight.label_tag }} {{ form.weight }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.blood_group.label_tag }} {{ form.blood_group }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.phone_number.label_tag }} {{ form.phone_number }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.location.label_tag }} {{ form.location }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                {{ form.disease.label_tag }} {{ form.disease }}
+            </div>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="confirmationCheck" required>
+            <label class="form-check-label" for="confirmationCheck">
+                I confirm that the details entered are accurate and truthful.
+            </label>
+            <div class="invalid-feedback">
+                You must confirm before submitting.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Register</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        let dateOfBirth = new Date(document.getElementById('id_date_of_birth').value);
+        let weight = parseFloat(document.getElementById('{{ form.weight.id_for_label }}').value);
+
+        let today = new Date();
+        let age = today.getFullYear() - dateOfBirth.getFullYear();
+        let m = today.getMonth() - dateOfBirth.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dateOfBirth.getDate())) {
+            age--;
+        }
+
+        if (age < 18) {
+            alert("You can't be registered as your age is below 18.");
+            event.preventDefault();
+            return;
+        }
+
+        if (weight < 50) {
+            alert("You can't be registered as your weight is below 50 kg.");
+            event.preventDefault();
+            return;
+        }
+    });
+</script>
+{% endblock %}

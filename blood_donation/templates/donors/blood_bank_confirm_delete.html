@@ -1,0 +1,13 @@
+{% extends 'donors/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Delete Blood Bank</h2>
+    <p>Are you sure you want to delete {{ blood_bank.name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'blood_bank_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
