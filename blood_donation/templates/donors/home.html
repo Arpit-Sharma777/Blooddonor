@@ -4,6 +4,8 @@
 <div class="jumbotron">
     <h1 class="display-4">Welcome to the Blood Donor Application</h1>
     <p class="lead">This is a simple application to help people find blood donors and blood banks easily.</p>
+    <a class="btn btn-87 btn-lg" href="{% url 'register_donor' %}" role="button">Register as a Donor 
+        <svg aria-hidden><circle></circle></svg></a>
     <hr class="my-4">
     <div class="info-section">
         <h2>What is Blood Donation?</h2>
@@ -40,6 +42,7 @@
         </ul>
         <img src="{% static 'images/dos_and_donts.png' %}" alt="Do's and Don'ts" class="img-fluid">
     </div>
-    <a class="btn btn-primary btn-lg" href="{% url 'register_donor' %}" role="button">Register as a Donor</a>
+    <a class="btn btn-87 btn-lg" href="{% url 'register_donor' %}" role="button">Register as a Donor 
+        <svg aria-hidden><circle></circle></svg></a>
 </div>
 {% endblock %}

@@ -1,67 +1,99 @@
 {% extends 'donors/base.html' %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2 class="mb-4">Register as Donor</h2>
+<div style="background-color: black;">
+    <div class="container mt-5">
+        <h2 class="mb-4">Register as Donor</h2>
 
-    <div class="alert alert-info">
-        <strong>Eligibility Criteria:</strong> Please ensure you meet the following criteria before proceeding with
-        registration:
-        <ul>
-            <li>You must be at least 18 years old.</li>
-            <li>Your weight must be above 50 kg.</li>
-            <li>You should not have any chronic diseases or major health issues.</li>
-        </ul>
-        <strong>Note:</strong> By submitting this form, you confirm that the details entered are accurate and truthful.
+        <div class="alert alert-info">
+            <strong>Eligibility Criteria:</strong> Please ensure you meet the following criteria before proceeding with
+            registration:
+            <ul>
+                <li>You must be at least 18 years old.</li>
+                <li>Your weight must be above 50 kg.</li>
+                <li>You should not have any chronic diseases or major health issues.</li>
+            </ul>
+            <strong>Note:</strong> By submitting this form, you confirm that the details entered are accurate and truthful.
+        </div>
+
+        <form method="post" class="needs-validation" id="registrationForm" novalidate>
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.name.label_tag }} {{ form.name }}
+                    <div class="invalid-feedback">Name is required.</div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="id_date_of_birth">Date of Birth:</label>
+                    <input type="date" class="form-control" id="id_date_of_birth" name="date_of_birth" required>
+                    <div class="invalid-feedback">Date of Birth is required.</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.weight.label_tag }} {{ form.weight }}
+                    <div class="invalid-feedback">Weight is required.</div>
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.blood_group.label_tag }} {{ form.blood_group }}
+                    <div class="invalid-feedback">Blood Group is required.</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.phone_number.label_tag }} {{ form.phone_number }}
+                    <div class="invalid-feedback">Phone Number is required.</div>
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.location.label_tag }} {{ form.location }}
+                    <div class="invalid-feedback">Location is required.</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    {{ form.disease.label_tag }} {{ form.disease }}
+                </div>
+            </div>
+            <div class="wrap-check-63">
+                <input type="checkbox" id="check-63" name="check" required>
+                <label for="check-63">
+                    <span><!-- This span is needed to create the "checkbox" element --></span>I confirm that the details
+                    entered are accurate and truthful.
+                </label>
+                <div class="invalid-feedback">You must confirm before submitting.</div>
+            </div>
+
+            <button type="submit" class="btn btn-56">Register</button>
+
+        </form>
     </div>
-
-    <form method="post" class="needs-validation" id="registrationForm" novalidate>
-        {% csrf_token %}
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                {{ form.name.label_tag }} {{ form.name }}
-            </div>
-            <div class="form-group col-md-3">
-                <label for="id_date_of_birth">Date of Birth:</label>
-                <input type="date" class="form-control" id="id_date_of_birth" name="date_of_birth" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                {{ form.weight.label_tag }} {{ form.weight }}
-            </div>
-            <div class="form-group col-md-6">
-                {{ form.blood_group.label_tag }} {{ form.blood_group }}
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                {{ form.phone_number.label_tag }} {{ form.phone_number }}
-            </div>
-            <div class="form-group col-md-6">
-                {{ form.location.label_tag }} {{ form.location }}
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                {{ form.disease.label_tag }} {{ form.disease }}
-            </div>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="confirmationCheck" required>
-            <label class="form-check-label" for="confirmationCheck">
-                I confirm that the details entered are accurate and truthful.
-            </label>
-            <div class="invalid-feedback">
-                You must confirm before submitting.
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary mt-3">Register</button>
-    </form>
 </div>
-
 <script>
     document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        // Check if all required fields are filled
+        let form = document.getElementById('registrationForm');
+        let inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+        let isValid = true;
+
+        inputs.forEach(function(input) {
+            if (!input.value.trim()) {
+                isValid = false;
+                input.classList.add('is-invalid');
+                // Display error message next to the input
+                input.nextElementSibling.style.display = 'block';
+            } else {
+                input.classList.remove('is-invalid');
+                // Hide error message if input is filled
+                input.nextElementSibling.style.display = 'none';
+            }
+        });
+
+        if (!isValid) {
+            event.preventDefault();
+            return;
+        }
+
+        // Additional custom validation (age and weight)
         let dateOfBirth = new Date(document.getElementById('id_date_of_birth').value);
         let weight = parseFloat(document.getElementById('{{ form.weight.id_for_label }}').value);
 

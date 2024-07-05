@@ -1,25 +1,185 @@
+/* General styling */
 body {
-    padding-top: 56px;
+    font-family: 'Arial', sans-serif;
+    background-color: #50507176;
+    color: #c7cdd3;
+    margin: 0;
+    padding: 0px;
+    padding-top: 5px;
+
 }
+
+h1{
+    color: darkgrey;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+h2 {
+    color: #c95d5d;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Button styles */
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+
+
+.btn-primary {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Card styles */
 .card {
     border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background-color: rgba(241, 187, 187, 0.688);
+    background-image: linear-gradient(45deg, #ffffff, #928c8c);
+    box-shadow: 0 4px 10px rgba(255, 252, 252, 0.596);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
 }
+
+.card:hover {
+    transform: scale(1.03); /* Slightly larger scale on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.card-body {
+    padding: 20px;
+}
+
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.8rem; /* Larger title */
+    color: #000000; /* White text color */
+    margin-bottom: 10px; /* Space between title and subtitle */
+}
+
+.card-subtitle {
+    font-size: 1.2rem; /* Slightly larger subtitle */
+    color: #ea3737; /* Light gray text color */
+    margin-bottom: 15px; /* Space between subtitle and content */
+}
+
+.card-text {
+    font-size: 1.1rem; /* Slightly larger text */
+    color: #0918ebbf; /* Light gray text color */
+    line-height: 1.6; /* Improved readability with slightly increased line height */
+}
+
+.card-footer {
+    background-color: rgba(255, 0, 0, 0.2); /* Transparent white background for footer */
+    padding: 10px 20px;
+    border-top: 1px solid #dee2e6;
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+}
+
+.card-footer a {
+    text-decoration: none;
+    color: #ea0000; /* White link color */
     font-weight: bold;
 }
-.card-subtitle {
-    font-size: 1rem;
-    color: #6c757d;
+
+.card-footer a:hover {
+    text-decoration: underline;
 }
-/* Additional styling for the home page */
+
+
+/* List styles */
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    color: #000000;
+}
+
+.list-unstyled li {
+    padding: 10px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.list-unstyled li:last-child {
+    border-bottom: none;
+}
+
+th{
+    color: white;
+}
+td{
+    color:rgb(173, 157, 157) ;
+}
+/* Form styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-check {
+    margin-top: 20px;
+}
+
+.form-check-input {
+    margin-top: 0.3rem;
+}
+
+.form-check-label {
+    margin-left: 1.5rem;
+}
+
+.invalid-feedback {
+    color: red;
+}
+
+/* Custom styles for the alert box */
+.alert {
+    border: 1px solid #bee5eb;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #d1ecf1;
+    color: #0c5460;
+    margin-bottom: 20px;
+}
+
+/* Jumbotron */
 .jumbotron {
-    background-color: #f8f9fa;
+    background-color: rgba(66, 63, 63, 0.177);
     padding: 2rem;
     margin-top: 3rem;
     border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .jumbotron h2 {
@@ -35,18 +195,10 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.btn-primary {
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-
-.btn-primary:hover {
-    background-color: #c82333;
-    border-color: #bd2130;
-}
-/* Additional styling for the home page */
+/* Info section */
 .info-section {
     margin-bottom: 4rem;
+    text-align: center;
 }
 
 .info-section h2 {
@@ -74,3 +226,371 @@ body {
 .info-section img:hover {
     transform: scale(1.05);
 }
+
+
+
+.btn-87:before {
+    border: 0 solid;
+    box-sizing: border-box;
+   
+}
+
+.btn-87 {
+    -webkit-tap-highlight-color:
+        transparent;
+    -webkit-appearance: button;
+    background-color:
+        #000000;
+    background-image: none;
+    color:
+        #fffefe;
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0;
+    -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+    margin-left: 500px;
+}
+
+.btn-87:disabled {
+    cursor: default;
+}
+
+.btn-87:-moz-focusring {
+    outline: auto;
+}
+
+.btn-87 svg {
+    display: block;
+    
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-87 [hidden] {
+    display: none;
+}
+
+.btn-87 {
+    background: red;
+    border-radius: 1111px;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    font-weight: 900;
+    height: 110px;
+    position: relative;
+    text-transform: uppercase;
+    width: 110px;
+    color: white;
+    
+}
+
+.btn-87 span {
+    mix-blend-mode: difference;
+}
+
+.btn-87:before {
+    background:
+        #ffffff;
+    border-radius: 50%;
+    content: "";
+    inset: 0;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.2s linear;
+    z-index: -1;
+}
+
+.btn-87:hover:before {
+    opacity: 1;
+    transition: opacity 0.2s linear 1s;
+}
+
+.btn-87 svg {
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 4px;
+    stroke-dasharray: 450;
+    stroke-dashoffset: 450;
+    height: 105%;
+    left: -5px;
+    pointer-events: none;
+    position: absolute;
+    top: -5px;
+    transition: stroke-dashoffset 0.4s ease-in-out;
+    width: 105%;
+}
+
+.btn-87 circle {
+    cx: 52%;
+    cy: 52%;
+    r: 45%;
+}
+
+.btn-87:hover svg {
+    stroke-dashoffset: 120;
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.wrap-delete * {
+    margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  .button-delete {
+      -webkit-touch-callout: none;
+        -webkit-user-select: none;
+         -khtml-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+            -webkit-tap-highlight-color: 
+  transparent;
+    }
+    
+    .wrap-delete button {
+        width: 150px;
+        height: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        background: 
+  red;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px 
+  rgba(0,0,0,0.15);
+        background: 
+  #e62222;
+    }
+    
+    .wrap-delete button, .wrap-delete button span {
+        transition: 200ms;
+    }
+    
+    .wrap-delete button .text {
+        transform: translateX(35px);
+        color: 
+  white;
+        font-weight: bold;
+    }
+    
+    .wrap-delete button .icon {
+        position: absolute;
+        border-left: 1px solid 
+  #c41b1b;
+        transform: translateX(110px);
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .wrap-delete button svg {
+        width: 15px;
+        fill: 
+  #eee;
+    }
+    
+    .wrap-delete button:hover {
+        background: 
+  #ff3636;
+    }
+    
+    .wrap-delete button:hover .text {
+        color: 
+  transparent;
+    }
+    
+    .wrap-delete button:hover .icon {
+        width: 150px;
+        border-left: none;
+        transform: translateX(0);
+    }
+    
+    .wrap-delete button:focus {
+        outline: none;
+    }
+
+    .wrap-check-63 .checkbox {
+        display: table-cell;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        text-align: center;
+      }
+    
+      .wrap-check-63 label {
+        display: inline-block;
+        color: 
+    #333;
+        cursor: pointer;
+        position: relative;
+      }
+      .wrap-check-63 label span {
+        display: inline-block;
+        position: relative;
+        background-color: 
+    transparent;
+        width: 25px;
+        height: 25px;
+        transform-origin: center;
+        border: 2px solid 
+    #333;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 10px;
+        transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89);
+      }
+      .wrap-check-63 label span:before {
+        content: "";
+        width: 0px;
+        height: 2px;
+        border-radius: 2px;
+        background: 
+    #333;
+        position: absolute;
+        transform: rotate(45deg);
+        top: 13px;
+        left: 9px;
+        transition: width 50ms ease 50ms;
+        transform-origin: 0% 0%;
+      }
+      .wrap-check-63 label span:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        border-radius: 2px;
+        background: 
+    #333;
+        position: absolute;
+        transform: rotate(305deg);
+        top: 16px;
+        left: 10px;
+        transition: width 50ms ease;
+        transform-origin: 0% 0%;
+      }
+      .wrap-check-63 label:hover span:before {
+        width: 5px;
+        transition: width 100ms ease;
+      }
+      .wrap-check-63 label:hover span:after {
+        width: 10px;
+        transition: width 150ms ease 100ms;
+      }
+    
+      .wrap-check-63 input[type=checkbox] {
+        display: none;
+      }
+      .wrap-check-63 input[type=checkbox]:checked + label span {
+        background-color: 
+    #333;
+        transform: scale(1.25);
+      }
+      .wrap-check-63 input[type=checkbox]:checked + label span:after {
+        width: 10px;
+        background: 
+    #fff;
+        transition: width 150ms ease 100ms;
+      }
+      .wrap-check-63 input[type=checkbox]:checked + label span:before {
+        width: 5px;
+        background: 
+    #fff;
+        transition: width 150ms ease 100ms;
+      }
+      .wrap-check-63 input[type=checkbox]:checked + label:hover span {
+        background-color: 
+    #333;
+        transform: scale(1.25);
+      }
+      .wrap-check-63 input[type=checkbox]:checked + label:hover span:after {
+        width: 10px;
+        background: 
+    #fff;
+        transition: width 150ms ease 100ms;
+      }
+      .wrap-check-63 input[type=checkbox]:checked + label:hover span:before {
+        width: 5px;
+        background: 
+    #fff;
+        transition: width 150ms ease 100ms;
+      }
+
+      .btn-56,
+      .btn-56 *,
+      .btn-56 :after,
+      .btn-56 :before,
+      .btn-56:after,
+      .btn-56:before {
+        border: 0 solid;
+        box-sizing: border-box;
+      }
+      .btn-56 {
+        -webkit-tap-highlight-color: 
+      transparent;
+        -webkit-appearance: button;
+        background-color: 
+      #000;
+        background-image: none;
+        color: 
+      #fff;
+        cursor: pointer;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        font-size: 100%;
+        line-height: 1.5;
+        margin: 0;
+        -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+        padding: 0;
+      }
+      .btn-56:disabled {
+        cursor: default;
+      }
+      .btn-56:-moz-focusring {
+        outline: auto;
+      }
+      .btn-56 svg {
+        display: block;
+        vertical-align: middle;
+      }
+      .btn-56 [hidden] {
+        display: none;
+      }
+      .btn-56 {
+        border: 1px solid;
+        border-radius: 999px;
+        box-sizing: border-box;
+        display: block;
+        font-weight: 900;
+        -webkit-mask-image: none;
+        overflow: hidden;
+        padding: 1.2rem 3rem;
+        position: relative;
+        text-transform: uppercase;
+      }
+      .btn-56:hover {
+        -webkit-animation: pulse 0.5s;
+        animation: pulse 0.5s;
+        box-shadow: 0 0 0 2em 
+      transparent;
+      }
+      @-webkit-keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 
+      #fff;
+        }
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 
+      #fff;
+        }
+      }      
